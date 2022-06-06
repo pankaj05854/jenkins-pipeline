@@ -49,15 +49,15 @@ pipeline {
 
 		stage('Sonar') {
 			steps {
-				sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar -Dsonar.host.url=http://localhost:9000"
+				//sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar -Dsonar.host.url=http://localhost:9000"
 			}
 		}
 
 		stage('Build Docker Image') {
 			steps {
-				//sh "docker build -t rangakaranam/currency-exchange-azure:$env.BUILD_TAG  --pull --no-cache ."
+				//sh "docker build -t pankaj05854/currency-exchange-azure:$env.BUILD_TAG  --pull --no-cache ."
 				script {
-					dockerImage = docker.build("rangakaranam/currency-exchange-azure:${env.BUILD_ID}")
+					dockerImage = docker.build("pankaj05854/currency-exchange-azure:${env.BUILD_ID}")
 				}
 			}
 			
