@@ -62,7 +62,7 @@ pipeline {
 		}
 		stage('deployment-dev') {
 			steps {
-				echo "deployment-dev"
+				echo "deployment-dev "
 			}
 
 			environment {
