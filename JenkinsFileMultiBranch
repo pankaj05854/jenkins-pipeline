@@ -60,6 +60,40 @@ pipeline {
 			}
 			
 		}
+		stage('deployment-dev') {
+			steps {
+				echo "deployment-dev"
+			}
+
+			environment {
+				env = "dev"
+			}
+
+			when {
+				branch '**/dev*'
+				beforeOptions true
+			}
+			}
+		}
+		stage('deployment-prod') {
+			steps {
+				echo "deployment-prod"
+			}
+
+			environment {
+				env = "prod"
+			}
+
+			when {
+				branch '**/master*'
+				beforeOptions true
+			}
+
+			input {
+				message 'want to proceed?'
+			}
+		}
+
 
 	}
 	post {
